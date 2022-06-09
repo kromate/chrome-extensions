@@ -8,6 +8,20 @@
 <script src="./scripts/htmlBeautify.js"></script>
 <script type="module" src="./scripts/popup.js"></script>
 
+<div
+	class="flex h-12 p-2 px-4 flex items-center text-white text-lg font-semibold bg-purple-900"
+>
+	<img src="./assets/ext-icon.png" alt="logo" class="w-auto h-7 mr-6" />
+	Code Formatter
+	<a
+		href="http://github.com"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="ml-auto"
+	>
+		<img src="./assets/github.svg" alt="github_logo"
+	/></a>
+</div>
 <div class="container w-96 p-4 shadow-none bg-gray-100 relative">
 	<textarea
 		id="interpretation"
@@ -16,4 +30,6 @@
 		rows="12"
 		class="shadow-sm focus:ring-indigo-500 p-4 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
 	></textarea>
+
+	<div class="footer fixed inset-x-0 bottom-0 p-3 bg-white">Tabs</div>
 </div>
