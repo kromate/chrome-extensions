@@ -16,25 +16,47 @@
 			<img src="./assets/github.svg" alt="github_logo" /></a>
 	</div>
 </div>
+<div class="flex items-center justify-between bg-white px-4 p-2">
+	<span class='text-base'>Format Type</span>
+	<div class="relative  border-purple-900 border rounded">
+		<select
+			class="bg-white text-gray-400 appearance-none border-none inline-block py-2 pl-3 pr-8 rounded leading-tight w-full">
+			<option class="pt-6">HTML</option>
+			<option>CSS</option>
+			<option>Javascript</option>
+		</select>
+		<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style='width:12px'>
+				<path
+					d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" />
+			</svg>
+		</div>
+	</div>
+</div>
+
 
 <div class="container w-96 bg-gray-100 relative">
 	<div id="tab-contents">
-		<div id="first" class="p-4">
+		<div id="editor" class="p-4">
 			<textarea id="interpretation" ref="interpretation" name="interpretation" rows="12"
 				class="shadow-sm focus:ring-indigo-500 p-4 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
 			<button class="btn bg-purple-700 text-white px-14 py-2 rounded-md mt-2">
-				Convert
+				Format
 			</button>
+		</div>
+
+		<div id="settings" class="p-4">
+			Settings Pages
 		</div>
 
 	</div>
 </div>
 
-<div class="footer fixed inset-x-0 bottom-0 bg-white h-10">
-	<ul id="tabs" class="inline-flex pt-2 px-1 w-full">
-		<li class="tab border-b border-purple-700">
-			<a id="default-tab" href="#first">Tab 1</a>
+<div class="footer fixed inset-x-0 bottom-0 bg-white w-full">
+	<ul id="tabs" class="flex w-full items-end">
+		<li class="tab border-b border-purple-700 w-1/2">
+			<a id="default-tab" href="#editor">Editor</a>
 		</li>
-		<li class="tab"><a href="#second">Tab 2</a></li>
+		<li class="tab w-1/2"><a href="#settings">Settings</a></li>
 	</ul>
 </div>
