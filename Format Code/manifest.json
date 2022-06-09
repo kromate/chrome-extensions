@@ -1,36 +1,25 @@
 {
-  "name": "My YT Bookmarks",
+  "name": "Code Formatter",
   "version": "0.1.0",
-  "description": "Saving timestamps in YT videos",
-  "permissions": ["<all_urls>"],
-  "host_permissions": ["https://*.youtube.com/*"],
+  "description": "Format HTML, CSS, and JavaScript code",
+  "host_permissions": ["*://*/*"],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "./scripts/background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://*.youtube.com/*"],
-      "js": ["contentScript.js"]
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "assets/bookmark.png",
-        "assets/play.png",
-        "assets/delete.png",
-        "assets/save.png"
-      ],
-      "matches": ["https://*.youtube.com/*"]
-    }
-  ],
+    "icons": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "48": "assets/ext-icon.png",
+      "128": "assets/ext-icon.png"
+    },
   "action": {
     "default_icon": {
       "16": "assets/ext-icon.png",
       "24": "assets/ext-icon.png",
-      "32": "assets/ext-icon.png"
+      "32": "assets/ext-icon.png",
+      "128": "assets/ext-icon.png"
     },
-    "default_title": "My YT Bookmarks",
+    "default_title": "Code Formatter",
     "default_popup": "popup.html"
   },
   "manifest_version": 3

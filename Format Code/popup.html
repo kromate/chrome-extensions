@@ -1,10 +1,19 @@
-<link href="popup.css" rel="stylesheet" type="text/css" />
-<script type="module" src="popup.js"></script>
+<link
+	rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css"
+/>
+<link rel="stylesheet" href="./popup.css" />
+<title>test</title>
+<script src="./scripts/beautify.js"></script>
+<script src="./scripts/htmlBeautify.js"></script>
+<script type="module" src="./scripts/popup.js"></script>
 
-<div class="container">
-  <div>
-    <div class="title">Your bookmarks for this video</div>
-
-    <div class="bookmarks" id="bookmarks"></div>
-  </div>
+<div class="container w-96 p-4 shadow-none bg-gray-100 relative">
+	<textarea
+		id="interpretation"
+		ref="interpretation"
+		name="interpretation"
+		rows="12"
+		class="shadow-sm focus:ring-indigo-500 p-4 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+	></textarea>
 </div>
