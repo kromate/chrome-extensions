@@ -25,49 +25,48 @@ tabTogglers.forEach(function (toggler) {
 	});
 });
 
-
 // ------------- End of Tab Logic ----------------------------
 
 // ------------- Beginning of Editor Logic -------------------
 let selectMenu = document.querySelector('#lang_type');
 let editor = document.querySelector('#board');
 let copyBtn = document.querySelector('#copy');
-let formatBtn = document.querySelector('#paste');
+let formatBtn = document.querySelector('#format');
+let languageType = 'html';
 
-selectMenu.addEventListener('change', (e) =>
-{
-	console.log(e.target.value);
+selectMenu.addEventListener('change', (e) => {
+	languageType = e.target.value;
 });
-copyBtn.addEventListener('click', (e) =>
+formatBtn.addEventListener('click', async () =>
 {
-	editor.select()
-	if (document.execCommand('copy'))
-	{
+	console.log('Clicked');
+	console.log(languageType);
+	formatBtn.innerHTML = 'loading...';
+	formatBtn.disabled = true;
+	let sentData = {
+		type: 'formatCode',
+		value: value,
+		lang: languageType,
+	}
+	chrome.runtime.sendMessage(sentData, (response) => {
+  // 3. Got an asynchronous response with the data from the background
+  console.log('received user data', response);
+//   initializeUI(response);
+});
+	formatBtn.innerHTML = 'Format';
+	formatBtn.disabled = false;
+});
+copyBtn.addEventListener('click', (e) => {
+	editor.select();
+	if (document.execCommand('copy')) {
 		console.log('copied');
 		chrome.notifications.create({
 			title: 'Code Formatter',
 			message: 'Code copied successfully',
 			iconUrl: 'assets/ext-icon.png',
 			type: 'basic',
-		})
+		});
 	}
 });
-
-let options = {
-	indent_inner_html: false,
-	indent_size: 2,
-	indent_char: '\t',
-	wrap_line_length: 78,
-	brace_style: 'expand',
-	preserve_newlines: true,
-	max_preserve_newlines: 5,
-	indent_handlebars: false,
-	extra_liners: ['/html'],
-	selector_separator: ' ',
-	end_with_newline: false,
-	newline_between_rules: true,
-	space_around_selector_separator: true,
-};
-
 
 // ------------- End of Editor Logic ---------------------------

@@ -1,11 +1,22 @@
-chrome.tabs.onUpdated.addListener((tabId, tab) => {
-  if (tab.url && tab.url.includes("youtube.com/watch")) {
-    const queryParameters = tab.url.split("?")[1];
-    const urlParameters = new URLSearchParams(queryParameters);
+importScripts('./prettier/standalone.js')
+importScripts('./prettier/html.js')
+importScripts('./prettier/css.js')
+importScripts('./prettier/typescript.js')
 
-    chrome.tabs.sendMessage(tabId, {
-      type: "NEW",
-      videoId: urlParameters.get("v"),
-    });
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) =>
+{
+ const { type, value, lang } = message;
+  if (type === 'formatCode')
+  {
+    console.log(message);
+  //  let formatted = prettier.format(editor.value, {
+	// 	parser: lang,
+	// 	plugins: prettierPlugins,
+	// 	indent_size: 4,
+	// })
+    sendResponse('formatted');
   }
 });
+
+
+
