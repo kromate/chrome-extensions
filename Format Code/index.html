@@ -1,50 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css"
-		/>
-		<title>test</title>
-		<script src="./scripts/beautify.js"></script>
-		<script src="./scripts/htmlBeautify.js"></script>
 
-	</head>
-	<body>
-		<div id="app" class="min-h-screen bg-gray-100">
-			<div class="max-w-screen-md mx-auto p-20 space-y-6 sm:space-y-5">
-				<div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-					<div class="sm:col-span-6">
-					
-							<div class="grid grid-cols-1 gap-1 my-1">
-								<textarea
-									id="interpretation"
-									ref="interpretation"
-									name="interpretation"
-									rows="12"
-									class="shadow-sm focus:ring-indigo-500 p-4 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-									v-bind:value="interpretation"
-									v-on:input="onInterpretationChange"
-								></textarea>
-							</div>
-						<button class='btn bg-purple-700 text-white  px-14 py-2 rounded-md mt-2'>Submit</button>
-						</div>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css" />
+	<title>test</title>
+	<script src="./scripts/beautify.js"></script>
+	<script src="./scripts/htmlBeautify.js"></script>
+
+</head>
+
+<body>
+	<div id="app" class="min-h-screen bg-gray-100">
+		<div class="max-w-screen-md mx-auto p-20 space-y-6 sm:space-y-5">
+			<div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+				<div class="sm:col-span-6">
+
+					<div class="grid grid-cols-1 gap-1 my-1">
+						<textarea id="interpretation" ref="interpretation" name="interpretation" rows="12" class="shadow-sm focus:ring-indigo-500 p-4 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+							v-bind:value="interpretation" v-on:input="onInterpretationChange"></textarea>
 					</div>
+					<button class='btn bg-purple-700 text-white  px-14 py-2 rounded-md mt-2'>Submit</button>
 				</div>
 			</div>
 		</div>
-	</body>
+	</div>
+	</div>
+</body>
 
 
-    <script>
-        const textEditor = document.querySelector('#interpretation')
-        const btn = document.querySelector('.btn')
+<script>
+	let options = {
+		indent_inner_html: true,
+		indent_size: 4,
+		indent_scripts: 'separate',
+		indent_char: '\t',
+		wrap_line_length: 250,
+		brace_style: 'expand',
+		preserve_newlines: false,
+		max_preserve_newlines: 5,
+		indent_handlebars: false,
+		extra_liners: ['/html', 'span'],
+		selector_separator: ' ',
+		end_with_newline: true,
+		newline_between_rules: true,
+		space_around_selector_separator: true,
+	};
+	const textEditor = document.querySelector('#interpretation')
+	const btn = document.querySelector('.btn')
 
-		btn.addEventListener('click', ()=>{
-			textEditor.value = html_beautify(textEditor.value)
-		})
-    </script>
+	btn.addEventListener('click', () =>
+	{
+		textEditor.value = html_beautify(textEditor.value, options)
+
+		console.log(textEditor.value);
+	})
+</script>
+
 </html>

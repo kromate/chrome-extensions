@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Format HTML, CSS, and JavaScript code",
   "host_permissions": ["*://*/*"],
+   "permissions": ["storage", "notifications"],
   "background": {
     "service_worker": "./scripts/background.js"
   },
