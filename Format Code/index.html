@@ -32,30 +32,19 @@
 
 
 <script>
-	let options = {
-		indent_inner_html: true,
-		indent_size: 4,
-		indent_scripts: 'separate',
-		indent_char: '\t',
-		wrap_line_length: 250,
-		brace_style: 'expand',
-		preserve_newlines: false,
-		max_preserve_newlines: 5,
-		indent_handlebars: false,
-		extra_liners: ['/html', 'span'],
-		selector_separator: ' ',
-		end_with_newline: true,
-		newline_between_rules: true,
-		space_around_selector_separator: true,
-	};
+
+
 	const textEditor = document.querySelector('#interpretation')
 	const btn = document.querySelector('.btn')
 
 	btn.addEventListener('click', () =>
 	{
-		textEditor.value = html_beautify(textEditor.value, options)
+		textEditor.value = prettier.format("type Query { hello: String }", {
+			parser: "graphql",
+			plugins: [parserGraphql],
+		});
 
-		console.log(textEditor.value);
+		// console.log(textEditor.value);
 	})
 </script>
 
