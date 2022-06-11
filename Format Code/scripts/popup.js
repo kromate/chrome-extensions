@@ -1,5 +1,6 @@
-let tabsContainer = document.querySelector('#tabs');
+// ----------------- Beginning of Tab Logic -----------------
 
+let tabsContainer = document.querySelector('#tabs');
 let tabTogglers = tabsContainer.querySelectorAll('#tabs li');
 
 tabTogglers.forEach(function (toggler) {
@@ -24,9 +25,14 @@ tabTogglers.forEach(function (toggler) {
 	});
 });
 
+
+// ------------- End of Tab Logic ----------------------------
+
+// ------------- Beginning of Editor Logic -------------------
 let selectMenu = document.querySelector('#lang_type');
 let editor = document.querySelector('#board');
 let copyBtn = document.querySelector('#copy');
+let formatBtn = document.querySelector('#paste');
 
 selectMenu.addEventListener('change', (e) =>
 {
@@ -62,3 +68,6 @@ let options = {
 	newline_between_rules: true,
 	space_around_selector_separator: true,
 };
+
+
+// ------------- End of Editor Logic ---------------------------

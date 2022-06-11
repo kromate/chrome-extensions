@@ -7,8 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css" />
 	<title>test</title>
-	<script src="./scripts/beautify.js"></script>
-	<script src="./scripts/htmlBeautify.js"></script>
+	<script src="./scripts/prettier/standalone.js"></script>
+	<script src="./scripts/prettier/html.js"></script>
+	<script src="./scripts/prettier/css.js"></script>
+	<script src="./scripts/prettier/typescript.js"></script>
 
 </head>
 
@@ -27,21 +29,21 @@
 			</div>
 		</div>
 	</div>
-	</div>
 </body>
 
 
-<script>
-
+<script type='module'>
+	console.log(prettier);
 
 	const textEditor = document.querySelector('#interpretation')
 	const btn = document.querySelector('.btn')
 
-	btn.addEventListener('click', () =>
+	btn.addEventListener('click', async () =>
 	{
-		textEditor.value = prettier.format("type Query { hello: String }", {
-			parser: "graphql",
-			plugins: [parserGraphql],
+		textEditor.value = await prettier.format(textEditor.value, {
+			parser: "html",
+			plugins: prettierPlugins,
+			indent_size: 4,
 		});
 
 		// console.log(textEditor.value);
