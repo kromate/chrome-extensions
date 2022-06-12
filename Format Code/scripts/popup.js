@@ -45,16 +45,16 @@ formatBtn.addEventListener('click', async () =>
 	formatBtn.disabled = true;
 	let sentData = {
 		type: 'formatCode',
-		value: value,
+		value: editor.value,
 		lang: languageType,
 	}
-	chrome.runtime.sendMessage(sentData, (response) => {
-  // 3. Got an asynchronous response with the data from the background
-  console.log('received user data', response);
-//   initializeUI(response);
-});
+	chrome.runtime.sendMessage(sentData, (response) =>
+	{
+	editor.value = response
 	formatBtn.innerHTML = 'Format';
 	formatBtn.disabled = false;
+});
+
 });
 copyBtn.addEventListener('click', (e) => {
 	editor.select();

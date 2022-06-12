@@ -1,10 +1,5 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css" />
 <link rel="stylesheet" href="./popup.css" />
-<title>test</title>
-<script src="./scripts/prettier/standalone.js"></script>
-<script src="./scripts/prettier/html.js"></script>
-<script src="./scripts/prettier/css.js"></script>
-<script src="./scripts/prettier/typescript.js"></script>
+<title>Code Formatter</title>
 <script type="module" src="./scripts/popup.js"></script>
 
 <div class="flex h-12 p-2 px-4 flex items-center text-white text-lg font-semibold bg-purple-900">
@@ -39,7 +34,7 @@
 		<div id="editor" class="p-4">
 			<textarea id="board" rows="12" class="shadow-sm focus:ring-indigo-500 p-4 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
 			<div class="flex items-center justify-between">
-				<button class="btn bg-purple-700 text-white px-14 py-2 rounded-md mt-2" id='format'>
+				<button class="btn bg-purple-700 text-white px-14 py-2 rounded-md mt-2 disabled:bg-red-500" id='format'>
 					Format
 				</button>
 				<button class="btn bg-purple-700 text-white px-2 py-2 rounded-md mt-2" id='copy'>
