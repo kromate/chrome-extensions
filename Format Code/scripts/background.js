@@ -1,7 +1,7 @@
 importScripts('./prettier/standalone.js');
 importScripts('./prettier/html.js');
 importScripts('./prettier/css.js');
-importScripts('./prettier/typescript.js');
+// importScripts('./prettier/typescript.js');
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	const { type, value, lang } = message;
