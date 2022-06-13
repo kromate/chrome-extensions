@@ -1,0 +1,27 @@
+{
+    "name": "LinkedIn Autobot",
+    "version": "0.0.0.1",
+    "description": "Automate Connection requests on LinkedIn",
+    "permissions": ["storage", "tabs"],
+    "host_permissions": ["https://*.youtube.com/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://*.linkedin.com/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "assets/ext-icon.png",
+        "24": "assets/ext-icon.png",
+        "32": "assets/ext-icon.png"
+      },
+      "default_title": "LinkedIn Autobot",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 3
+  }
+  
