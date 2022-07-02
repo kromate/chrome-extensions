@@ -1,5 +1,7 @@
 // ----------------- Beginning of Tab Logic -----------------
 
+import { storageSet } from "./helpers";
+
 let tabsContainer = document.querySelector('#tabs');
 let tabTogglers = tabsContainer.querySelectorAll('#tabs li');
 
@@ -37,36 +39,48 @@ let languageType = 'html';
 selectMenu.addEventListener('change', (e) => {
 	languageType = e.target.value;
 });
-formatBtn.addEventListener('click', async () =>
-{
-	console.log('Clicked');
-	console.log(languageType);
-	formatBtn.innerHTML = 'loading...';
-	formatBtn.disabled = true;
-	let sentData = {
-		type: 'formatCode',
-		value: editor.value,
-		lang: languageType,
-	}
-	chrome.runtime.sendMessage(sentData, (response) =>
-	{
-	editor.value = response
-	formatBtn.innerHTML = 'Format';
-	formatBtn.disabled = false;
-});
 
-});
-copyBtn.addEventListener('click', (e) => {
-	editor.select();
-	if (document.execCommand('copy')) {
-		console.log('copied');
-		chrome.notifications.create({
-			title: 'Code Formatter',
-			message: 'Code copied successfully',
-			iconUrl: 'assets/ext-icon.png',
-			type: 'basic',
-		});
-	}
-});
+formatBtn.addEventListener('click', async() =>
+{
+	console.log('hello')
+	await storageSet(editor.value)
+	console.log('hello')
+})
+
+
+
+// formatBtn.addEventListener('click', async () =>
+// {
+// 	console.log('Clicked');
+// 	console.log(languageType);
+// 	formatBtn.innerHTML = 'loading...';
+// 	formatBtn.disabled = true;
+// 	let sentData = {
+// 		type: 'formatCode',
+// 		value: editor.value,
+// 		lang: languageType,
+// 	}
+// 	chrome.runtime.sendMessage(sentData, (response) =>
+// 	{
+// 	editor.value = response
+// 	formatBtn.innerHTML = 'Format';
+// 	formatBtn.disabled = false;
+// });
+ 
+// });
+// copyBtn.addEventListener('click', (e) => {
+// 	editor.select();
+// 	if (document.execCommand('copy')) {
+// 		console.log('copied');
+// 		chrome.notifications.create({
+// 			title: 'Code Formatter',
+// 			message: 'Code copied successfully',
+// 			iconUrl: 'assets/ext-icon.png',
+// 			type: 'basic',
+// 		});
+// 	}
+// });
 
 // ------------- End of Editor Logic ---------------------------
+
+
