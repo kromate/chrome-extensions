@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="./css/popup.css" />
 <title>Code Formatter</title>
 <script type="module" src="./scripts/popup.js"></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous"
+  referrerpolicy="no-referrer" />
 <div class="flex h-12 p-2 px-4 flex items-center text-white text-lg font-semibold bg-purple-900">
   <img src="./assets/icon48.png" alt="logo" class="w-auto h-7 mr-6" />
   Script Runner
@@ -65,14 +66,14 @@
 
 <div class="footer fixed inset-x-0 bottom-0 bg-white w-full">
   <ul id="tabs" class="flex w-full items-end">
-    <li class="tab active_tab w-1/2" data-name="#editor">
+    <li class="tab active_tab w-1/2" data-name="#command">
       <span id="default-tab" class="flex justify-center items-center pointer-events-none">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-3">
           <path
             d="M3 3.75V8.25H7.5V3.75H3ZM4.5 5.25H6V6.75H4.5V5.25ZM9 5.25V6.75H20.25V5.25H9ZM3 9.75V14.25H7.5V9.75H3ZM4.5 11.25H6V12.75H4.5V11.25ZM9 11.25V12.75H20.25V11.25H9ZM3 15.75V20.25H7.5V15.75H3ZM4.5 17.25H6V18.75H4.5V17.25ZM9 17.25V18.75H20.25V17.25H9Z"
             fill="black" />
         </svg>
-        Editor
+        Commands
       </span>
     </li>
     <li class="tab w-1/2" data-name="#settings">
