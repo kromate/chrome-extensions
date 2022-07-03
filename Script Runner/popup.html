@@ -32,6 +32,20 @@
 
 <div class="container w-96 bg-gray-100 relative">
   <div id="tab-contents">
+    <div id="command" class="p-4">
+      <textarea id="board" rows="12" class="shadow-sm focus:ring-indigo-500 p-4 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+      <div class="flex items-center justify-between">
+        <button class="btn bg-purple-700 text-white px-14 py-2 rounded-md mt-2 disabled:bg-red-500" id='format'>
+          Format
+        </button>
+        <button class="btn bg-purple-700 text-white px-2 py-2 rounded-md mt-2" id='copy'>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3V18H8.25V16.5H4.5V4.5H13.5V5.25H15V3H3ZM9 6V21H21V6H9ZM10.5 7.5H19.5V19.5H10.5V7.5Z" fill="currentColor" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
     <div id="settings" class="p-4 hidden text-center">
       <span class='text-lg'>Settings Pages</span>
 
@@ -48,19 +62,7 @@
 
     </div>
 
-    <div id="editor" class="p-4">
-      <textarea id="board" rows="12" class="shadow-sm focus:ring-indigo-500 p-4 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
-      <div class="flex items-center justify-between">
-        <button class="btn bg-purple-700 text-white px-14 py-2 rounded-md mt-2 disabled:bg-red-500" id='format'>
-          Format
-        </button>
-        <button class="btn bg-purple-700 text-white px-2 py-2 rounded-md mt-2" id='copy'>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 3V18H8.25V16.5H4.5V4.5H13.5V5.25H15V3H3ZM9 6V21H21V6H9ZM10.5 7.5H19.5V19.5H10.5V7.5Z" fill="currentColor" />
-          </svg>
-        </button>
-      </div>
-    </div>
+
   </div>
 </div>
 
