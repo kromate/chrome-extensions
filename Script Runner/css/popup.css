@@ -872,8 +872,8 @@ video {
 }
 
 .active_tab {
-  border-bottom: 2px solid #6d28d9;
-  background-color: #6c28d919;
+  border-bottom: 3px solid #f59e0b;
+  background-color: #f59f0b30;
 }
 
 .btn:disabled {
@@ -898,4 +898,15 @@ svg {
 
 summary::-webkit-details-marker {
   display: none;
+}
+
+.border-orange-900 {
+  border: 1px solid #7c2d12;
+}
+
+.bg-orange-600 {
+  background: #f59e0b;
+}
+.bg-orange-900 {
+  background: #000;
 }
