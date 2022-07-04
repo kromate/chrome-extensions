@@ -884,7 +884,7 @@ details {
   user-select: none;
 }
 
-details[open] summary svg {
+details[open] summary svg.turn {
   transform: rotate(-90deg);
 }
 
@@ -909,4 +909,8 @@ summary::-webkit-details-marker {
 }
 .bg-orange-900 {
   background: #000;
+}
+
+.text-md {
+  font-size: 14px;
 }
