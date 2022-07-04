@@ -44,9 +44,9 @@
 
     <form id="editor" class="p-2 hidden flex flex-col">
       <label for="title" class='text-base font-semibold mb-1'>Title</label>
-      <input id='title' type="text" placeholder='Enter script title' maxlength="10" class='shadow-sm focus:ring-indigo-500 px-4 py-3 mb-3 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md' />
-      <label for="desc" class='text-base font-semibold mb-1'>Title</label>
-      <textarea id='desc' rows="3" placeholder='Enter script description' maxlength="10" class='shadow-sm focus:ring-indigo-500 px-4 py-3 mb-3 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md'></textarea>
+      <input id='title' type="text" placeholder='Enter script title (42 characters max)' maxlength="42" class='shadow-sm focus:ring-indigo-500 px-4 py-3 mb-3 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md' />
+      <label for="desc" class='text-base font-semibold mb-1'>Description</label>
+      <textarea id='desc' rows="3" placeholder='Enter script description' class='shadow-sm focus:ring-indigo-500 px-4 py-3 mb-3 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md'></textarea>
       <label for="code" class='text-base font-semibold mb-1'>Code</label>
       <textarea id="code" rows="12" class="shadow-sm focus:ring-indigo-500 p-4 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
       <div class="flex items-center justify-between">
