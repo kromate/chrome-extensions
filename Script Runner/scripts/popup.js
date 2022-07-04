@@ -30,15 +30,15 @@ tabTogglers.forEach(function (toggler) {
 // ------------- End of Tab Logic ----------------------------
 
 // ------------- Beginning of Editor Logic -------------------
-let selectMenu = document.querySelector('#lang_type');
+// let selectMenu = document.querySelector('#lang_type');
 let editor = document.querySelector('#board');
 let copyBtn = document.querySelector('#copy');
 let formatBtn = document.querySelector('#format');
 let languageType = 'html';
 
-selectMenu.addEventListener('change', (e) => {
-	languageType = e.target.value;
-});
+// selectMenu.addEventListener('change', (e) => {
+// 	languageType = e.target.value;
+// });
 
 formatBtn.addEventListener('click', async() =>
 {
