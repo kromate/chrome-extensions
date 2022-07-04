@@ -1,6 +1,6 @@
 // ----------------- Beginning of Tab Logic -----------------
 
-import { storageSet } from "./helpers";
+import { storageGet, storageSet } from "./helpers.js";
 
 let tabsContainer = document.querySelector('#tabs');
 let tabTogglers = tabsContainer.querySelectorAll('#tabs li');
@@ -43,11 +43,11 @@ selectMenu.addEventListener('change', (e) => {
 formatBtn.addEventListener('click', async() =>
 {
 	console.log('hello')
-	await storageSet(editor.value)
+	await storageSet({'vale': editor.value })
 	console.log('hello')
 })
 
-
+console.log(await storageGet())
 
 // formatBtn.addEventListener('click', async () =>
 // {
