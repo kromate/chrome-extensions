@@ -1,3 +1,5 @@
+import { storageGet } from './helpers.js';
+
 export const initTabs = () => {
 	let tabsContainer = document.querySelector('#tabs');
 	let tabTogglers = tabsContainer.querySelectorAll('#tabs li');
@@ -23,4 +25,9 @@ export const initTabs = () => {
 			e.target.classList.add('active_tab');
 		});
 	});
+};
+
+export const fetchScript = async () => {
+	let scripts = await storageGet();
+	console.log(scripts);
 };

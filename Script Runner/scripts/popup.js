@@ -1,3 +1,4 @@
-import { initTabs } from './utils.js';
+import { fetchScript, initTabs } from './utils.js';
 
 initTabs();
+fetchScript();
