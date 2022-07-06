@@ -37,7 +37,6 @@ var injectOnRun = function () {
       if (tab.url.startsWith("chrome://")) {
         return;
       }
-
       chrome.tabs.executeScript(tab.id, {file: 'injected.js'});
     });
   });
