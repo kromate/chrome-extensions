@@ -7,12 +7,9 @@ export const initTabs = () => {
 	tabTogglers.forEach(function (toggler) {
 		toggler.addEventListener('click', function (e) {
 			e.preventDefault();
-			console.log(this);
 			let tabName = this.getAttribute('data-name');
-			console.log(tabName);
 			let tabContents = document.querySelector('#tab-contents');
 			for (let i = 0; i < tabContents.children.length; i++) {
-				console.log(tabTogglers[i].classList);
 				tabTogglers[i].classList.remove('active_tab');
 				tabContents.children[i].classList.remove('hidden');
 				if ('#' + tabContents.children[i].id === tabName) {
@@ -30,7 +27,7 @@ export const initTabs = () => {
 export const fetchScript = async () => {
 	let scripts = await storageGet();
 	console.log(scripts);
-	console.log(uuidv4());
+	// console.log(uuidv4());
 };
 
 export const uuidv4 = () => {
@@ -40,4 +37,17 @@ export const uuidv4 = () => {
 			(crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
 		).toString(16)
 	);
+};
+
+export const saveCode = () => {
+	let title = document.getElementById('title').value;
+	let desc = document.getElementById('desc').value;
+	let code = document.getElementById('code').value;
+	document.getElementById('editor').addEventListener('submit', () => {
+		alert({
+			title,
+			desc,
+			code,
+		});
+	});
 };
