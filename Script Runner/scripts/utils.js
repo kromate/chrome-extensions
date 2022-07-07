@@ -77,6 +77,9 @@ export const appendElements = (obj) => {
 	const { code, id } = obj;
 	contentBody.appendChild(createBody(obj));
 	document.getElementById(id).addEventListener('click', () => runCode(code));
+	document
+		.getElementById(`del-${id}`)
+		.addEventListener('click', () => delCode(id));
 };
 export const clearForm = () => {
 	document.getElementById('title').value = '';
@@ -88,7 +91,8 @@ export const createBody = (obj) => {
 	const { title, desc, id } = obj;
 	const node = document.createElement('details');
 	node.className = `w-full mt-2 w-full bg-white px-2.5 py-2 border`;
-	node.innerHTML = `<summary class="flex items-center  py-4  max-w-[100%]  text-md">
+	node.setAttribute('id', `node-${id}`);
+	node.innerHTML = `<summary class="flex items-center  py-4  max-w-[100%]  text-sm">
 			${title}
             <button class="ml-auto" id=${id} >
               <svg class="fill-current opacity-75 w-5 h-5 ml-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,11 +108,17 @@ export const createBody = (obj) => {
                 fill="black" />
             </svg>
           </summary>
-          <div class="mt-4 leading-normal text-sm ">${desc}</div>`;
+          <div class="mt-4 leading-normal text-xs ">${desc}</div>
+		 <button id=del-${id} class="btn bg-orange-600 text-white px-5 py-1 rounded-md mt-3 disabled:bg-red-500 float-right">Delete</button> 
+		  `;
 
 	return node;
 };
 
 export const runCode = (code) => {
 	console.log('Running...', code);
+};
+export const delCode = (id) => {
+	storageRemove('id');
+	document.getElementById(`node-${id}`).remove();
 };
