@@ -1,4 +1,4 @@
-import { storageGet } from './helpers.js';
+import { storageGet, storageRemove, storageSet } from './helpers.js';
 
 export const initTabs = () => {
 	let tabsContainer = document.querySelector('#tabs');
@@ -25,6 +25,7 @@ export const initTabs = () => {
 };
 
 export const fetchScript = async () => {
+	storageRemove('vale');
 	let scripts = await storageGet();
 	console.log(scripts);
 	// console.log(uuidv4());
@@ -40,14 +41,23 @@ export const uuidv4 = () => {
 };
 
 export const saveCode = () => {
-	let title = document.getElementById('title').value;
-	let desc = document.getElementById('desc').value;
-	let code = document.getElementById('code').value;
-	document.getElementById('editor').addEventListener('submit', () => {
-		alert({
+	document.getElementById('editor').addEventListener('submit', (e) => {
+		e.preventDefault();
+		let id = uuidv4();
+		let title = document.getElementById('title').value;
+		let desc = document.getElementById('desc').value;
+		let code = document.getElementById('code').value;
+		let data = {
 			title,
 			desc,
 			code,
-		});
+		};
+		storageSet({ id: data });
 	});
+};
+
+export const clearForm = () => {
+	document.getElementById('title').value = '';
+	document.getElementById('desc').value = '';
+	document.getElementById('code').value = '';
 };
