@@ -6,6 +6,8 @@ import {
 	isEmpty,
 } from './helpers.js';
 
+let contentBody = document.querySelector('#commandList');
+
 export const initTabs = () => {
 	let tabsContainer = document.querySelector('#tabs');
 	let tabTogglers = tabsContainer.querySelectorAll('#tabs li');
@@ -31,19 +33,13 @@ export const initTabs = () => {
 };
 
 export const fetchScript = async () => {
-	let script = await fetch(
-		'https://raw.githubusercontent.com/james-d-m/Script-Runner/master/scripts/utils.js'
-	);
-	let contentBody = document.querySelector('#commandList');
-
 	let scripts = await storageGet();
 	// console.log(scripts);
 	if (isEmpty(scripts)) {
 		contentBody.innerHTML = emptyState;
 	} else {
 		for (let item in scripts) {
-			console.log(item);
-			console.log(scripts[item]);
+			appendElements(scripts[item]);
 		}
 	}
 };
@@ -76,16 +72,20 @@ export const saveCode = () => {
 	});
 };
 
+export const appendElements = (obj) => {
+	contentBody.appendChild(createBody(obj));
+};
 export const clearForm = () => {
 	document.getElementById('title').value = '';
 	document.getElementById('desc').value = '';
 	document.getElementById('code').value = '';
 };
 
-export const createBody = () => {
-	return `
-	     <details class="w-full mt-2 w-full bg-white px-2.5 py-2 border">
-          <summary class="flex items-center  py-4  max-w-[100%]  text-md">LinkedIn connection request script
+export const createBody = (obj) => {
+	const { title, desc, code, id } = obj;
+	const node = document.createElement('details');
+	node.className = `w-full mt-2 w-full bg-white px-2.5 py-2 border`;
+	node.innerHTML = `  <summary class="flex items-center  py-4  max-w-[100%]  text-md">LinkedIn connection request script
             <button class="ml-auto">
               <svg class="fill-current opacity-75 w-5 h-5 ml-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" fill="white" stroke="#000" />
@@ -100,7 +100,7 @@ export const createBody = () => {
                 fill="black" />
             </svg>
           </summary>
-          <div class="mt-4 leading-normal text-sm ">No, click on the route feature and select the route of your choice, then select schedule to know about the bus hours</div>
-        </details>
-	`;
+          <div class="mt-4 leading-normal text-sm ">No, click on the route feature and select the route of your choice, then select schedule to know about the bus hours</div>`;
+
+	return node;
 };

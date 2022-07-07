@@ -17,6 +17,6 @@ export const emptyState = () => {
         </p>`;
 };
 
-function isEmpty(obj) {
+export const isEmpty = (obj) => {
 	return Object.keys(obj).length === 0;
-}
+};
