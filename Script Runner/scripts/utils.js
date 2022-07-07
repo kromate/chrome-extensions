@@ -34,9 +34,9 @@ export const initTabs = () => {
 
 export const fetchScript = async () => {
 	let scripts = await storageGet();
-	// console.log(scripts);
+	contentBody.innerHTML = '';
 	if (isEmpty(scripts)) {
-		contentBody.innerHTML = emptyState;
+		contentBody.innerHTML = emptyState();
 	} else {
 		for (let item in scripts) {
 			appendElements(scripts[item]);
@@ -68,8 +68,8 @@ export const saveCode = () => {
 		};
 
 		await storageSet({ [id]: data });
-		appendElements(data);
 		clearForm();
+		await fetchScript();
 	});
 };
 
@@ -118,7 +118,8 @@ export const createBody = (obj) => {
 export const runCode = (code) => {
 	console.log('Running...', code);
 };
-export const delCode = (id) => {
-	storageRemove('id');
-	document.getElementById(`node-${id}`).remove();
+export const delCode = async (id) => {
+	await storageRemove(id);
+	await document.getElementById(`node-${id}`).remove();
+	await fetchScript();
 };
