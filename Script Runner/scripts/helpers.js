@@ -48,3 +48,8 @@ export const createBody = (obj) => {
 
 	return node;
 };
+
+export const runner = () => {
+	console.log('Ello');
+	alert('Hello');
+};

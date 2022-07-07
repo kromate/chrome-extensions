@@ -5,6 +5,7 @@ import {
 	storageSet,
 	isEmpty,
 	createBody,
+	runner,
 } from './helpers.js';
 
 let contentBody = document.querySelector('#commandList');
@@ -90,15 +91,10 @@ export const clearForm = () => {
 
 export const runCode = (code) => {
 	console.log('Running...', code);
-	chrome.scripting.executeScript(
-		{
-			target: { tabId: currentTab },
-			files: ['script.js'],
-		},
-		() => {
-			Alert('Helloe');
-		}
-	);
+	chrome.scripting.executeScript({
+		target: { tabId: currentTab.id },
+		func: runner,
+	});
 };
 export const delCode = async (id) => {
 	await storageRemove(id);
