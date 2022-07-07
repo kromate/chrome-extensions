@@ -68,12 +68,15 @@ export const saveCode = () => {
 		};
 
 		await storageSet({ [id]: data });
+		appendElements(data);
 		clearForm();
 	});
 };
 
 export const appendElements = (obj) => {
+	const { code, id } = obj;
 	contentBody.appendChild(createBody(obj));
+	document.getElementById(id).addEventListener('click', () => runCode(code));
 };
 export const clearForm = () => {
 	document.getElementById('title').value = '';
@@ -82,11 +85,12 @@ export const clearForm = () => {
 };
 
 export const createBody = (obj) => {
-	const { title, desc, code, id } = obj;
+	const { title, desc, id } = obj;
 	const node = document.createElement('details');
 	node.className = `w-full mt-2 w-full bg-white px-2.5 py-2 border`;
-	node.innerHTML = `  <summary class="flex items-center  py-4  max-w-[100%]  text-md">LinkedIn connection request script
-            <button class="ml-auto">
+	node.innerHTML = `<summary class="flex items-center  py-4  max-w-[100%]  text-md">
+			${title}
+            <button class="ml-auto" id=${id} >
               <svg class="fill-current opacity-75 w-5 h-5 ml-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" fill="white" stroke="#000" />
                 <path
@@ -100,7 +104,11 @@ export const createBody = (obj) => {
                 fill="black" />
             </svg>
           </summary>
-          <div class="mt-4 leading-normal text-sm ">No, click on the route feature and select the route of your choice, then select schedule to know about the bus hours</div>`;
+          <div class="mt-4 leading-normal text-sm ">${desc}</div>`;
 
 	return node;
+};
+
+export const runCode = (code) => {
+	console.log('Running...', code);
 };
