@@ -25,7 +25,6 @@ export const initTabs = () => {
 };
 
 export const fetchScript = async () => {
-	storageRemove('vale');
 	let scripts = await storageGet();
 	console.log(scripts);
 	// console.log(uuidv4());
@@ -41,7 +40,7 @@ export const uuidv4 = () => {
 };
 
 export const saveCode = () => {
-	document.getElementById('editor').addEventListener('submit', (e) => {
+	document.getElementById('editor').addEventListener('submit', async (e) => {
 		e.preventDefault();
 		let id = uuidv4();
 		let title = document.getElementById('title').value;
@@ -51,8 +50,11 @@ export const saveCode = () => {
 			title,
 			desc,
 			code,
+			id,
 		};
-		storageSet({ id: data });
+
+		await storageSet({ [id]: data });
+		clearForm();
 	});
 };
 
