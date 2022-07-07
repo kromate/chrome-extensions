@@ -2,7 +2,7 @@
 	"name": "Script Runner",
 	"version": "0.0.0.1",
 	"description": "Automate repetitive chrome tasks by running scripts in the broswer",
-	"permissions": ["storage"],
+	"permissions": ["storage", "scripting"],
 	"host_permissions": ["*://*/*"],
 	"background": {
 		"service_worker": "./scripts/background.js"
