@@ -49,7 +49,16 @@ export const createBody = (obj) => {
 	return node;
 };
 
-export const runner = () => {
-	console.log('Ello');
-	alert('Hello');
+export const runner = (code) => {
+	function copyTextToClipboard(text) {
+		var copyFrom = document.createElement('textarea');
+		copyFrom.textContent = text;
+		document.body.appendChild(copyFrom);
+		copyFrom.select();
+		document.execCommand('copy');
+		copyFrom.blur();
+		document.body.removeChild(copyFrom);
+	}
+	copyTextToClipboard(code);
+	alert('Code copied, open your console and paste to run code 🥲');
 };

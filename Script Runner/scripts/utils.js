@@ -94,6 +94,7 @@ export const runCode = (code) => {
 	chrome.scripting.executeScript({
 		target: { tabId: currentTab.id },
 		func: runner,
+		args: [code],
 	});
 };
 export const delCode = async (id) => {
